@@ -26,3 +26,7 @@ These parameters are the needed capabilities to be able to run the Appium Test a
 - __5.__ Run Appium Test
 - __6.__ SonarQube
 - __7.__ Post Build actions
+
+_______________________________________
+
+This project is licensed under the terms of the [Apache] (/LICENSE.md) license.

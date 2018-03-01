@@ -29,4 +29,4 @@ These parameters are the needed capabilities to be able to run the Appium Test a
 
 _______________________________________
 
-This project is licensed under the terms of the [Apache] (/LICENSE.md) license.
+This project is licensed under the terms of the [Apache] (LICENSE.md) license.

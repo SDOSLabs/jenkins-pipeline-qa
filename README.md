@@ -36,7 +36,7 @@ When we created a new job in Jenkins to execute our Appium Test using this pipel
 - __JOB_EMULATOR_PLATFORM_VERSION:__ Emulator Version needed for the Appium Test to run (Appium Capability). _Choice parameter_.
 - __JOB_PLATFORM_NAME:__ Device Platform Name to launch the test: _android or ios_. _String parameter_
 - __JOB_APPIUM_SUITE:__ Name of the Test Suite to execute. _Choice parameter_.
-- __JOB_SLACK_CHANNEL_NOTIFICATION:__ Name of the Slack channel (from the your team Slack) to notify the result of the job execution. You need to previously configure Slack on the Manage Jenkins -> Configure System -> Global Slack Notifier Settings section in order to use it. _String parameter_.
+- __JOB_SLACK_CHANNEL_NOTIFICATION:__ Name of the Slack channel (you need to use Slack on your company and have a custom team domain) to notify the result of the job execution. You need to previously configure Slack on the Manage Jenkins -> Configure System -> Global Slack Notifier Settings section in order to use it. _String parameter_.
 
 These parameters are the needed capabilities to be able to run the Appium Test along with the Appium Core of SDOS.
 
@@ -44,13 +44,13 @@ Once you have all the parameters needed on your job, you just need to add on the
 
 ## 2. Stages.
 
-- __1. Initial Configuration:__ Stage to set the configuration we needed to run the test. Set several variables such as JOB_FILES_DIRECTORY or the SUITE_PATH. Also we clean the workspace before start. 
-- __2. Download GIT Code:__ Stage to download the code from your repository using the JOB_GIT_URL and JOB_GIT_BRANCH parameters you set on Jenkins. 
-- __3. Execute ADB Server:__ This stage is executed only if the JOB_PLATFORM_NAME parameter is Android. On this stage, we start the ADB server. 
-- __4. Launch Android Emulator:__ This stage is executed only if the JOB_PLATFORM_NAME parameter is Android. On this stage, we launch the emulator we set on the JOB_DEVICE_NAME on Jenkins. The emulator should be created before execute this pipeline. 
-- __5. Run Appium Test:__ On this stage, we run the Appium test with the configuration we set on the Jenkins parameters. First, the pipeline check if the app name is defined (JOB_APP_NAME) or not on the Jenkins parameter. If the JOB_APP_NAME is not set, the app to execute should be defined on the POM.xml. If the execution is success, we published the result using Junit Report Plugin, if the execution is not success (failed or unstable), we archive the screenshot of the failed test and then publish the execution test result using Junit Report Plugin. 
+- __1. Initial Configuration:__ Stage to set the configuration we needed to run the test. Set several variables such as _JOB_FILES_DIRECTORY_ or the _SUITE_PATH_. Also we clean the workspace before start. 
+- __2. Download GIT Code:__ Stage to download the code from your repository using the _JOB_GIT_URL_ and _JOB_GIT_BRANCH_ parameters you set on Jenkins. 
+- __3. Execute ADB Server:__ This stage is executed only if the _JOB_PLATFORM_NAME_ parameter is Android. On this stage, we start the ADB server. 
+- __4. Launch Android Emulator:__ This stage is executed only if the _JOB_PLATFORM_NAME_ parameter is Android. On this stage, we launch the emulator we set on the _JOB_DEVICE_NAME_ on Jenkins. The emulator should be created before execute this pipeline. 
+- __5. Run Appium Test:__ On this stage, we run the Appium test with the configuration we set on the Jenkins parameters. First, the pipeline check if the app name is defined (_JOB_APP_NAME_) or not on the Jenkins parameter. If the _JOB_APP_NAME_ is not set, the app to execute should be defined on the POM.xml. If the execution is success, we published the result using Junit Report Plugin, if the execution is not success (failed or unstable), we archive the screenshot of the failed test and then publish the execution test result using Junit Report Plugin. 
 - __6. SonarQube:__ This stage use a Sonar Server configuration. In order to be able to see your Sonar analysis result, you need to configure your Sonar Server on: Manage Jenkins -> Configure System -> SonarQube servers section. 
-- __7. Post Build actions:__ On this stage, the build execution result will be published on the Slack channel you defined on JOB_SLACK_CHANNEL_NOTIFICATION with a specific message of the execution result. 
+- __7. Post Build actions:__ On this stage, the build execution result will be published on the Slack channel you defined on _JOB_SLACK_CHANNEL_NOTIFICATION_ with a specific message of the execution result. 
 
 ## 3. More Information.
 

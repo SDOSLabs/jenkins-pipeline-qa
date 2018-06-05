@@ -12,18 +12,18 @@ To be able to execute the pipeline in any system you have configured your Jenkin
 
 Fist, go to __Manage Jenkins__ -> __Configure System__ -> and on the __Global properties__ section, add the following environment variables:
 
--__ANDROID_HOME:__ Directory where the Android SDK is located.
--__GIT_CREDENTIAL:__ Git API Access Tokens. This key is generated from the User Settings.
--__JOB_DIRECTORY:__ Directory where the Project Files are located. 
+- __ANDROID_HOME:__ Directory where the Android SDK is located.
+- __GIT_CREDENTIAL:__ Git API Access Tokens. This key is generated from the User Settings.
+- __JOB_DIRECTORY:__ Directory where the Project Files are located. 
 
 ### Variables needed on the Initial Configuration.
 
 Once we had this environment variables set, we need to define several variables inside the pipeline, some of them will use the environment variables we defined on Jenkins.
 
--__JOB_FILES_DIRECTORY:__ Directory where the Project Files are located. We will use the JOB_DIRECTORY environment variable defined on Jenkins. 
--__PLATFORM_TOOL_DIRECTORY:__ Directory where the Platform Tools is located. We will use the ANDROID_HOME environment variable defined on Jenkins. 
--__EMULATOR_DIRECTORY:__ Directory where the Android Emulator is located. We will use the ANDROID_HOME environment variable defined on Jenkins. 
--__SUITE_PATH:__ Path of the Suite to execute
+- __JOB_FILES_DIRECTORY:__ Directory where the Project Files are located. We will use the JOB_DIRECTORY environment variable defined on Jenkins. 
+- __PLATFORM_TOOL_DIRECTORY:__ Directory where the Platform Tools is located. We will use the ANDROID_HOME environment variable defined on Jenkins. 
+- __EMULATOR_DIRECTORY:__ Directory where the Android Emulator is located. We will use the ANDROID_HOME environment variable defined on Jenkins. 
+- __SUITE_PATH:__ Path of the Suite to execute
 
 ### Variables needed on the Job Configuration.
 
